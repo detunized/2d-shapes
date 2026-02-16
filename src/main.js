@@ -1,5 +1,5 @@
 import { shapes } from './shapes.js';
-import { playCorrect, playWrong, playComplete } from './sounds.js';
+import { playCorrect, playWrong, playComplete, sayShape } from './sounds.js';
 import './style.css';
 
 const app = document.getElementById('app');
@@ -84,6 +84,7 @@ function flipCard() {
   state.flipped = !state.flipped;
   const card = app.querySelector('.card');
   if (card) card.classList.toggle('flipped', state.flipped);
+  if (state.flipped) sayShape(state.cards[state.index].name);
 }
 
 function nextCard() {

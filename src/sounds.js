@@ -35,3 +35,13 @@ export function playComplete() {
   tone(784, 0.24, 0.15);
   tone(1047, 0.36, 0.35);
 }
+
+const audioCache = {};
+
+export function sayShape(name) {
+  const file = `/audio/${name.replace(/ /g, '-')}.mp3`;
+  if (!audioCache[file]) audioCache[file] = new Audio(file);
+  const a = audioCache[file];
+  a.currentTime = 0;
+  a.play();
+}
