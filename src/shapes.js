@@ -53,7 +53,7 @@ export const shapes = [
   { name: 'star', category: 'basic',
     svg: svg(`<polygon points="${starPts(100, 105, 85, 35)}" fill="#F7941D" stroke="${S}" stroke-width="${W}" stroke-linejoin="round"/>`) },
   { name: 'crescent', category: 'basic',
-    svg: svg(`<path d="M130,15 A85,85 0 1,0 130,185 A62,62 0 0,1 130,15Z" fill="#F9A7C4" stroke="${S}" stroke-width="${W}"/>`) },
+    svg: svg(`<path d="M162,25 A85,85 0 1,0 162,175 A75,75 0 0,1 162,25Z" fill="#F9A7C4" stroke="${S}" stroke-width="${W}"/>`) },
 
   { name: 'pentagon', category: 'polygons', svg: rpoly(5, '#0072BC') },
   { name: 'hexagon', category: 'polygons', svg: rpoly(6, '#F7941D') },
