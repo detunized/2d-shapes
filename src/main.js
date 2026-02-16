@@ -1,4 +1,5 @@
 import { shapes } from './shapes.js';
+import { playCorrect, playWrong, playComplete } from './sounds.js';
 import './style.css';
 
 const app = document.getElementById('app');
@@ -106,10 +107,12 @@ function handleQuizAnswer(name) {
   state.quizAnswered = true;
   state.quizSelected = name;
   const correct = state.cards[state.index].name;
-  if (name === correct) state.quizScore++;
+  const isCorrect = name === correct;
+  if (isCorrect) state.quizScore++;
+  isCorrect ? playCorrect() : playWrong();
   render();
 
-  const delay = name === correct ? 1200 : 2200;
+  const delay = isCorrect ? 1200 : 2200;
   quizTimer = setTimeout(() => {
     quizTimer = null;
     state.index++;
@@ -120,6 +123,7 @@ function handleQuizAnswer(name) {
       render();
     } else {
       state.mode = 'quiz-end';
+      playComplete();
       render();
     }
   }, delay);
